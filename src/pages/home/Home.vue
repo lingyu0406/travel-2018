@@ -1,11 +1,15 @@
 <template>
   <div class="home">
     <home-header></home-header>
+    <swiper></swiper>
+    <home-btn></home-btn>
   </div>
 </template>
 
 <script>
 import HomeHeader from '@/home/components/Header.vue'
+import Swiper from '@/home/components/Swiper.vue'
+import HomeBtn from '@/home/components/HomeBtn.vue'
 export default {
   name: 'Home',
   data () {
@@ -14,7 +18,9 @@ export default {
     }
   },
   components: {
-  	HomeHeader
+  	HomeHeader,
+  	Swiper,
+  	HomeBtn
   }
 }
 </script>
