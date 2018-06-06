@@ -2,7 +2,7 @@
   <div class="home-header">
     <div class="header-back"><span class="iconfont">&#xe624;</span></div>
     <div class="header-search"><span class="iconfont">&#xe632;</span>输入您要搜索的主题</div>
-    <div class="header-city">北京<span class="iconfont">&#xe600;</span></div>
+    <router-link tag="div" class="header-city" to="/city">北京<span class="iconfont">&#xe600;</span></router-link>
   </div>
 </template>
 
@@ -42,4 +42,6 @@ export default {
 			text-align left
 		.header-city
 			padding-left .2rem
+			box-sizing border-box
+			min-width .44rem
 </style>

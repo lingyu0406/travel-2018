@@ -3,6 +3,7 @@
     <home-header></home-header>
     <swiper></swiper>
     <home-btn></home-btn>
+    <home-list></home-list>
   </div>
 </template>
 
@@ -10,6 +11,7 @@
 import HomeHeader from '@/home/components/Header.vue'
 import Swiper from '@/home/components/Swiper.vue'
 import HomeBtn from '@/home/components/HomeBtn.vue'
+import HomeList from '@/home/components/HomeList.vue'
 export default {
   name: 'Home',
   data () {
@@ -20,7 +22,8 @@ export default {
   components: {
   	HomeHeader,
   	Swiper,
-  	HomeBtn
+  	HomeBtn,
+  	HomeList
   }
 }
 </script>
