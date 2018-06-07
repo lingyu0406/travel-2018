@@ -2,17 +2,21 @@
   <div class="home-header">
     <div class="header-back"><span class="iconfont">&#xe624;</span></div>
     <div class="header-search"><span class="iconfont">&#xe632;</span>输入您要搜索的主题</div>
-    <router-link tag="div" class="header-city" to="/city">北京<span class="iconfont">&#xe600;</span></router-link>
+    <router-link tag="div" class="header-city" to="/city">{{this.city}}<span class="iconfont">&#xe600;</span></router-link>
   </div>
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
   name: 'HomeHeader',
   data () {
     return {
       
     }
+  },
+  computed: {
+  	...mapState(['city'])
   }
 }
 </script>

@@ -3,7 +3,7 @@
   	<swiper class="swiper" ref="mySwiper">
 		<swiper-slide v-for = "(page, index) of pages" :key="index">
 			<div class="home-btn" v-for="item in page">
-				<div class="home-btn-img">
+				<div class="home-btn-img" >
 					<img class="btn-img-content" :src="item.swiperImg" alt="">
 					<div class="home-btn-title">{{item.title}}</div>
 				</div>
@@ -79,7 +79,11 @@ export default {
   		});
   		return pages
   	}
+  },
+  methods: {
+    
   }
+
 }
 </script>
 

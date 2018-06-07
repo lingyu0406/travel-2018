@@ -3,7 +3,7 @@
     <input class="search-input" v-model="keyword" type="text" placeholder="请输入要搜索的城市">
     <div class="search-content" v-show="keyword" ref="search">
         <div>
-          <div class="search-item border-topbottom" v-for="item in list">{{item.name}}</div>
+          <div class="search-item border-topbottom" v-for="item in list" @click="handleClick(item.name)">{{item.name}}</div>
           <div class="search-item border-topbottom" v-show="!list.length">没有匹配到数据</div>            
         </div>
     </div>
@@ -42,8 +42,14 @@ export default {
         }, 100);
     }
   },
+  methods: {
+    handleClick(city){
+      this.$store.commit('changeCity',city)
+      this.$router.push('/')
+    }
+  },
   mounted(){
-    this.scroll = new BScroll(this.$refs.search)
+    this.scroll = new BScroll(this.$refs.search,{click: true})
   }
 }
 </script>

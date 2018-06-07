@@ -3,11 +3,11 @@
    <div class="content">
      <div class="hot-city-title">热门城市</div>
       <ul class="cities">
-        <li v-for="item of hotCity" :key="item.id">{{item.name}}</li>
+        <li @click="handleClick(item.name)" v-for="item of hotCity" :key="item.id">{{item.name}}</li>
       </ul>
-      <div class="city-list-wrap" v-for="(item,key) of city">
+      <div class="city-list-wrap" v-for="(item,key) of city" :key="key" :ref="key">
         <div class="list-title">{{key}}</div>
-        <div class="list-content" v-for="innerItem of item">
+        <div class="list-content" v-for="innerItem of item" @click="handleClick(innerItem.name)">
           <div class="list-item">{{innerItem.name}}</div>
         </div>
       </div>
@@ -22,17 +22,25 @@ export default {
   name: 'CityList',
   props: {
     hotCity: Array,
-    city: Object
+    city: Object,
+    letter: String
   },
-  data () {
-    return {
-      
+  watch: {
+    letter(){
+      if(this.letter){
+        let el = this.$refs[this.letter][0]
+        this.scroll.scrollToElement(el)
+      }
     }
   },
   methods: {
+    handleClick(city){
+      this.$store.commit('changeCity',city)
+      this.$router.push('/')
+    }
   },
   mounted(){
-    this.scroll = new BScroll(this.$refs.wrapper)
+    this.scroll = new BScroll(this.$refs.wrapper,{click:true})
   }
 }
 </script>

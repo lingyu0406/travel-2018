@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div class="list">
-			<div class="list-item" v-for="(item,key) of city">{{key}}</div>
+			<div class="list-item" v-for="(item,key) of city" @click="hangdleClick">{{key}}</div>
 		</div>	
 	</div>
 </template>
@@ -16,6 +16,11 @@ export default {
     return {
       
     }
+  },
+  methods: {
+  	hangdleClick(e){
+  		this.$emit('change', e.target.innerText)
+  	}
   }
 }
 </script>
